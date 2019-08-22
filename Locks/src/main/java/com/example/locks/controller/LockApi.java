@@ -1,6 +1,5 @@
 package com.example.locks.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +10,11 @@ import com.example.locks.examples.Lock1;
 @RequestMapping("/resource")
 public class LockApi {
 
-	@Autowired
 	Lock1 lock1Example;
+
+	public LockApi(Lock1 lock1Example) {
+		this.lock1Example = lock1Example;
+	}
 
 	@GetMapping
 	public String getMessage() {
